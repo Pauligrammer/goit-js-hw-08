@@ -11,13 +11,15 @@ if (formDataStr) {
     messageInput.value = formData.message;
 }
 
-form.addEventListener("input", throttle((ev) => {
+const dataLocalStorage = (ev) => {
     const data = {
         email: ev.target.elements.email.value,
         message: ev.target.elements.message.value,
     }
     localStorage.setItem("feedback-form-state", JSON.stringify(data));
-}), 500);
+};
+    
+form.addEventListener("input", throttle(dataLocalStorage, 500));
 
 form.addEventListener("submit", (ev) => {
     ev.preventDefault();
