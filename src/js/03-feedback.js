@@ -15,7 +15,7 @@ const dataLocalStorage = (ev) => {
     const data = {
         email: ev.target.elements.email.value,
         message: ev.target.elements.message.value,
-    }
+    };
     localStorage.setItem("feedback-form-state", JSON.stringify(data));
 };
     
